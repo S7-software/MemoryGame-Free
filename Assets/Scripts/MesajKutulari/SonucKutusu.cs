@@ -50,12 +50,16 @@ public class SonucKutusu : MonoBehaviour
 
     private void SonrakiOyun()
     {
+        ReklamKontrol.secenekler.ReklamiGoster();
+
         sesKutusu.PlayButtonClick();
         SceneManager.LoadScene(_hangiSahne + 1);
     }
 
     private void OyunuTekrarla()
     {
+        ReklamKontrol.secenekler.ReklamiGoster();
+
         sesKutusu.PlayButtonClick();
 
         SceneManager.LoadScene(_hangiSahne);
@@ -63,6 +67,8 @@ public class SonucKutusu : MonoBehaviour
 
     private void MenuyeDon()
     {
+        ReklamKontrol.secenekler.ReklamiGoster();
+
         sesKutusu.PlayButtonClick();
 
         SceneManager.LoadScene("Menu");

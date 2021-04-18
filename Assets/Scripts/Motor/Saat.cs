@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Saat : MonoBehaviour
 {
-
+    public static Saat secenekler;
 
     [Header("Parametreler")]
     [Range(1, 10)] [SerializeField] int baslangicSuresi = 4;
@@ -27,12 +27,26 @@ public class Saat : MonoBehaviour
     btnNasilOynanir buttonNasiOynanir;
     int toplamKartSayisi;
     SesKutusuUI sesKutusu;
-
+    private void Awake()
+    {
+        secenekler = this;
+    }
 
     void Start()
     {
         Tanimlama();
-        StartCoroutine(BesSaniyeGeriSayim());
+
+
+        //          Reklam sonrası oyun başlama tepkisi
+        if (ReklamKontrol.GetReklamSonrasiOyunBasladi())
+        {
+            FindObjectOfType<PanelReklamSonrasi>().SetActive(true);
+        }
+        else
+        {
+            CoroutineOyunuBaslatIlkBesSaniye();
+        }
+        
     }
 
 
@@ -158,23 +172,6 @@ public class Saat : MonoBehaviour
         {
 
              imgBar.sprite = spriteBarlar[0];
-            /*
-            if ((((toplamKartSayisi*5)/2)/2)/2>sure)
-            {
-
-                imgBar.sprite = spriteBarlar[0];
-               
-            }
-            else if (((toplamKartSayisi*5)/2) / 2>sure)
-            {
-                imgBar.sprite = spriteBarlar[1];
-            }
-            else
-            {
-                imgBar.sprite = spriteBarlar[2];
-               
-            }
-            */
         }
         else
         {
@@ -193,6 +190,12 @@ public class Saat : MonoBehaviour
                 imgBar.sprite = spriteBarlar[0];
             }
         }
+    }
+
+
+    public void CoroutineOyunuBaslatIlkBesSaniye()
+    {
+        StartCoroutine(BesSaniyeGeriSayim());
     }
     public void OyunBittiButunCoroutineleriDurdur()
     {

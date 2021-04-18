@@ -48,6 +48,7 @@ public class Kart : MonoBehaviour
 
     private void Tanimlama()
     {
+        
         hangiBolum = SceneManager.GetActiveScene().buildIndex;
         imgHayvan.sprite = sprtHayvan;
         animator = GetComponent<Animator>();
@@ -56,6 +57,10 @@ public class Kart : MonoBehaviour
         myCollider = GetComponent<BoxCollider2D>();
         kartKontrol = FindObjectOfType<KartKontrol>();
         sesKutusu = FindObjectOfType<SesKutusuUI>();
+        if (!ReklamKontrol.GetReklamSonrasiOyunBasladi())
+        {
+            IlkAcilis();
+        }
     }
 
     public void CerceveAta(int hangi)
@@ -87,6 +92,11 @@ public class Kart : MonoBehaviour
         kartAcik = true;
         myCollider.enabled = false;
          kartKontrol.KartCiftKontrol();
+    }
+
+    public void IlkAcilis()
+    {
+        animator.SetBool("ilk", true);
     }
 
    

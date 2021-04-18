@@ -33,19 +33,20 @@ public class UyariKutusuPause : MonoBehaviour
     private void OyunaDevam()
     {
         sesKutusu.PlayButtonClickGeri();
-
         StartCoroutine(CikisAnimasyon());
     }
     private void MenuyeGit()
     {
         sesKutusu.PlayButtonClick();
+        ReklamGoster();
+
         SceneManager.LoadScene("Menu");
     }
 
     private void AyniSayfayaGit()
     {
         sesKutusu.PlayButtonClick();
-
+        ReklamGoster();
         SceneManager.LoadScene(hangiSahne);
     }
 
@@ -63,5 +64,8 @@ public class UyariKutusuPause : MonoBehaviour
         saat.OyunDevamEttir();
 
     }
+
+    //              ReklamlFonksiyonu
+    void ReklamGoster() { ReklamKontrol.secenekler.ReklamiGoster(); }
 
 }

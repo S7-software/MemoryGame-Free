@@ -169,6 +169,7 @@ public class BolumYoneticisi : MonoBehaviour
         enSonSayfa = KAYIT.GetMenuKacinciSayfadaKaldi(zorluk);
         menuCerceveleri = GameObject.Find("MenuCerceveler").GetComponentsInChildren<MenuCerceve>();
         resimKutusu = FindObjectOfType<ResimKutusu>();
+        ReklamKontrol.SetReklamSonrasiOyunBasliyor(false);
         ButtonlaraFonksiyonAtama();
     }
 
