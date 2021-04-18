@@ -10,7 +10,7 @@ public class ReklamKontrol : MonoBehaviour
     const string REKLAM_GOSTERILDI = "reklam gösterildi";
     string gameId = "4078909";
 
-    bool testMode = true;
+    bool testMode = false;
     private string reklamId = "gecis";
 
 

@@ -19,6 +19,7 @@ public class Saat : MonoBehaviour
     public Text[] txtSureler;
     public Slider slider;
     public int mevcutSure = 5;
+    [SerializeField] List<Image> imgYildizlar;
     private bool oyunBasladi = false;
     public bool oyunBitti;
     KartKontrol kartKontrol;
@@ -64,6 +65,33 @@ public class Saat : MonoBehaviour
         oyunYoneticisi = FindObjectOfType<OyunYoneticisi>();
         toplamKartSayisi = oyunYoneticisi.GetKartSayisi();
         sesKutusu = FindObjectOfType<SesKutusuUI>();
+        YildizlariGoster();
+
+    }
+
+    private void YildizlariGoster()
+    {
+        switch (KAYIT.GetRekorYildiz(oyunYoneticisi.GetZorluk(), oyunYoneticisi.hangiBolum))
+        {
+            case 1:
+                imgYildizlar[0].enabled = true;
+                imgYildizlar[1].enabled = false;
+                imgYildizlar[2].enabled = false;
+                break;
+            case 2:
+                imgYildizlar[0].enabled = true;
+                imgYildizlar[1].enabled = true;
+                imgYildizlar[2].enabled = false; break;
+            case 3:
+                imgYildizlar[0].enabled = true;
+                imgYildizlar[1].enabled = true;
+                imgYildizlar[2].enabled = true; break;
+            default:
+                imgYildizlar[0].enabled = false;
+                imgYildizlar[1].enabled = false;
+                imgYildizlar[2].enabled = false;
+                break;
+        }
 
     }
 
