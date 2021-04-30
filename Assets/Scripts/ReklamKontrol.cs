@@ -12,6 +12,7 @@ public class ReklamKontrol : MonoBehaviour
 
    bool testMode = true;
     private string reklamId = "gecis";
+    private string reklamIdBanner = "bannerMemoryGameFree";
 
 
     #endregion
@@ -31,7 +32,7 @@ public class ReklamKontrol : MonoBehaviour
     #endregion
 
 
-    public void ReklamiGoster()
+    public void ShowGecis()
     {
         if (Advertisement.IsReady() && Goster())
         {
@@ -40,7 +41,28 @@ public class ReklamKontrol : MonoBehaviour
 
         }
     }
+    #region Banner
+    public void ShowBanner()
+    {
+        StartCoroutine(ShowBannerWhenInitialized());
+    }
 
+    public void CloseBanner()
+    {
+        Advertisement.Banner.Hide();
+    }
+
+
+    IEnumerator ShowBannerWhenInitialized()
+    {
+        while (!Advertisement.isInitialized)
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+        Advertisement.Banner.Show(reklamIdBanner);
+    }
+    #endregion
 
     //              Gösterilecek Aralık
     bool Goster()

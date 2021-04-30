@@ -32,19 +32,23 @@ public class UyariKutusuPause : MonoBehaviour
 
     private void OyunaDevam()
     {
+        
         sesKutusu.PlayButtonClickGeri();
         StartCoroutine(CikisAnimasyon());
     }
     private void MenuyeGit()
     {
+        ReklamKontrol.secenekler.CloseBanner();
+
         sesKutusu.PlayButtonClick();
         ReklamGoster();
-
         SceneManager.LoadScene("Menu");
     }
 
     private void AyniSayfayaGit()
     {
+        ReklamKontrol.secenekler.CloseBanner();
+
         sesKutusu.PlayButtonClick();
         ReklamGoster();
         SceneManager.LoadScene(hangiSahne);
@@ -60,12 +64,14 @@ public class UyariKutusuPause : MonoBehaviour
     {
         myAnim.SetTrigger("cikis");
         yield return new WaitForSeconds(0.4F);
-        canvasPause.SetActive(false);
+        ReklamKontrol.secenekler.CloseBanner();
         saat.OyunDevamEttir();
+        canvasPause.SetActive(false);
+       
 
     }
 
     //              ReklamlFonksiyonu
-    void ReklamGoster() { ReklamKontrol.secenekler.ReklamiGoster(); }
+    void ReklamGoster() { ReklamKontrol.secenekler.ShowGecis(); }
 
 }

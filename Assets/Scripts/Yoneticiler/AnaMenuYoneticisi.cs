@@ -64,6 +64,7 @@ public class AnaMenuYoneticisi : MonoBehaviour
     {
         sesKutusu.PlayButtonClick();
         zolukKutusu.SetActive();
+        ReklamKontrol.secenekler.ShowBanner();
     }
 
     private void Tanimlamalar()

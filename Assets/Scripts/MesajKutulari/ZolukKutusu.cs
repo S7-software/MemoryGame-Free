@@ -58,22 +58,21 @@ public class ZolukKutusu : MonoBehaviour
         yazilar[4].text = YAZI.BesSaniyeSureVe();
         yazilar[5].text = YAZI.BesSaniyeSureVe();
     }
-
+    #region Handler Button
     private void Geri()
     {
         ses.PlayButtonClickGeri();
        anim.SetTrigger("geri");
         StartCoroutine(GeriGit());
+        ReklamKontrol.secenekler.CloseBanner();
     }
-
+   
     private void Zor()
     {
         ses.PlayButtonClick();
-
         KAYIT.SetOyunZorluk(2);
         StartCoroutine(SahneyeGit());
-
-
+        ReklamKontrol.secenekler.CloseBanner();
     }
 
     private void Normal()
@@ -82,8 +81,7 @@ public class ZolukKutusu : MonoBehaviour
 
         KAYIT.SetOyunZorluk(1);
         StartCoroutine(SahneyeGit());
-
-
+        ReklamKontrol.secenekler.CloseBanner();
     }
 
     private void Suresiz()
@@ -91,7 +89,11 @@ public class ZolukKutusu : MonoBehaviour
         ses.PlayButtonClick();
         KAYIT.SetOyunZorluk(0);
         StartCoroutine(SahneyeGit());
+        ReklamKontrol.secenekler.CloseBanner();
     }
+    #endregion
+
+
 
     private void Tanimlamalar()
     {

@@ -24,6 +24,7 @@ public class btnCikis : MonoBehaviour
         //  Instantiate(canvasPause, , Quaternion.identity);
         canvasPause.SetActive(true);
         saat.OyunDuraklat();
+        ReklamKontrol.secenekler.ShowBanner();
 
     }
 }
