@@ -9,12 +9,10 @@ using UnityEngine.SceneManagement;
 public class OyunYoneticisi : MonoBehaviour
 {
 
-
+    #region Degiskenler
     [Header("Parametreler")]
     [SerializeField] int sureNormalOyun = 30;
     [SerializeField] int sureZorlOyun = 5;
-
-
 
     [Header("Tanimlanacaklar")]
     // public List<WaveConfig> waveConfigs;
@@ -35,18 +33,47 @@ public class OyunYoneticisi : MonoBehaviour
 
     bool ilkDefaKoleksiyon;
     SesKutusuUI sesKutusu;
+    #endregion
 
-
-
+    #region Awake, Update
 
     private void Awake()
     {
+        KameraOraniAyarlama();
         Tanimlama();
         Atama();
     }
+   
+
     void Update()
     {
         OyunBitti();
+
+    }
+    #endregion
+
+    #region in Awake
+    private void KameraOraniAyarlama()
+    {
+        float kameraOlcek=((float)((float)Camera.main.scaledPixelHeight / (float)Camera.main.scaledPixelWidth)-2) * 2;
+        if(kameraOlcek > 0)
+        Camera.main.orthographicSize += kameraOlcek;
+    }
+
+    private void Tanimlama()
+    {
+        oyunBitti = false;
+        saat = FindObjectOfType<Saat>();
+        resimKutusu = FindObjectOfType<ResimKutusu>();
+
+        ButunKartComponentleriAl();
+        hangiBolum = SceneManager.GetActiveScene().buildIndex;
+        toplamKartSayisi = kartlar.Length;
+        zorluk = KAYIT.GetOyunZorluk();
+
+        resimKutusu.Tanimlamalar(toplamKartSayisi, hangiBolum);
+        ilkDefaKoleksiyon = KAYIT.GetRekorSure(zorluk, hangiBolum) == 0 ? true : false;
+        sesKutusu = FindObjectOfType<SesKutusuUI>();
 
     }
 
@@ -59,6 +86,8 @@ public class OyunYoneticisi : MonoBehaviour
 
     }
 
+    #endregion
+
     private void KartlaraResimAta()
     {
         foreach (Kart kart in kartlar)
@@ -66,11 +95,6 @@ public class OyunYoneticisi : MonoBehaviour
             kart.sprtHayvan = resimKutusu.RasgeleResimVer();
         }
     }
-
-    // Update is called once per frame
-
-
-
     int YildizVer()
     {
 
@@ -122,22 +146,7 @@ public class OyunYoneticisi : MonoBehaviour
 
     }
 
-    private void Tanimlama()
-    {
-        oyunBitti = false;
-        saat = FindObjectOfType<Saat>();
-        resimKutusu = FindObjectOfType<ResimKutusu>();
-
-        ButunKartComponentleriAl();
-        hangiBolum = SceneManager.GetActiveScene().buildIndex;
-        toplamKartSayisi = kartlar.Length;
-        zorluk = KAYIT.GetOyunZorluk();
-
-        resimKutusu.Tanimlamalar(toplamKartSayisi, hangiBolum);
-        ilkDefaKoleksiyon = KAYIT.GetRekorSure(zorluk, hangiBolum) == 0 ? true : false;
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
-
-    }
+    
 
 
 
@@ -290,6 +299,8 @@ public class OyunYoneticisi : MonoBehaviour
 
     }
 
+
+    #region Get Fonksiyonlari
     public int GetZorluk()
     {
         return zorluk;
@@ -299,5 +310,5 @@ public class OyunYoneticisi : MonoBehaviour
     {
         return toplamKartSayisi;
     }
-
+    #endregion
 }
