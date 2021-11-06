@@ -8,6 +8,8 @@ public class ReklamKontrol : MonoBehaviour
     #region Degisktenler
     public static ReklamKontrol secenekler;
     const string REKLAM_GOSTERILDI = "reklam gösterildi";
+    const string gosterilecekAralik = "GosterilecekAralik";
+
     string gameId = "4078909";
 
    bool testMode = true;
@@ -67,21 +69,21 @@ public class ReklamKontrol : MonoBehaviour
     //              Gösterilecek Aralık
     bool Goster()
     {
-        if (!PlayerPrefs.HasKey("GosterilecekAralik"))
+        if (!PlayerPrefs.HasKey(gosterilecekAralik))
         {
-            PlayerPrefs.SetInt("GosterilecekAralik", 5);
+            PlayerPrefs.SetInt(gosterilecekAralik, 10);
             return false;
         }
-        int sayi = PlayerPrefs.GetInt("GosterilecekAralik");
+        int sayi = PlayerPrefs.GetInt(gosterilecekAralik);
         if (sayi == 1)
         {
-            PlayerPrefs.SetInt("GosterilecekAralik", Random.Range(2, 4));
+            PlayerPrefs.SetInt(gosterilecekAralik, Random.Range(5, 7));
             return true;
         }
         else
         {
             sayi--;
-            PlayerPrefs.SetInt("GosterilecekAralik", sayi);
+            PlayerPrefs.SetInt(gosterilecekAralik, sayi);
             return false;
         }
     }
