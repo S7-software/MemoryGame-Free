@@ -23,8 +23,15 @@ public class AyarlarYoneticisi : MonoBehaviour
     [SerializeField] GameObject uyariKutusuAyarlariSil;
     [SerializeField]  SesKutusuUI ses;
     [SerializeField] SahnelerArasiGecis gecis;
+
+    ReklamKontrol reklamKontrol;
+    private void Awake()
+    {
+        reklamKontrol = FindObjectOfType<ReklamKontrol>();
+    }
     void Start()
     {
+        reklamKontrol.ShowBanner();
         DilButtonlariCek(KAYIT.GetDilSecilen());
         Tanimlamalar();
         TextlereVeriCek();
@@ -91,6 +98,7 @@ public class AyarlarYoneticisi : MonoBehaviour
 
     private void AnaMenuyeGit()
     {
+        reklamKontrol.CloseBanner();
         ses.PlayButtonClick();
 
         StartCoroutine(SahneyeGit("Ana"));

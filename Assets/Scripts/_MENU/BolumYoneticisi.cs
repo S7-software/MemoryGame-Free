@@ -29,6 +29,10 @@ public class BolumYoneticisi : MonoBehaviour
         Tanimlamalar();
         Atamalar();
     }
+    private void Start()
+    {
+        FindObjectOfType<ReklamKontrol>().ShowBanner();
+    }
 
     private void Atamalar()
     {
@@ -198,6 +202,7 @@ public class BolumYoneticisi : MonoBehaviour
 
     private void AnaSayfayaGit()
     {
+        FindObjectOfType<ReklamKontrol>().CloseBanner();
         sesKutusu.PlayButtonClickGeri();
         StartCoroutine(AnaSayfa());
     }

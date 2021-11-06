@@ -12,9 +12,9 @@ public class ReklamKontrol : MonoBehaviour
 
     string gameId = "4078909";
 
-   bool testMode = true;
+   bool testMode = false;
     private string reklamId = "gecis";
-    private string reklamIdBanner = "bannerMemoryGameFree";
+    private string reklamIdBanner = "bannerYeniMemoryGame";
 
 
     #endregion
@@ -57,11 +57,13 @@ public class ReklamKontrol : MonoBehaviour
 
     IEnumerator ShowBannerWhenInitialized()
     {
-        while (!Advertisement.isInitialized)
+        Advertisement.Banner.Load(reklamIdBanner);
+        while (!Advertisement.IsReady(reklamIdBanner))
         {
             yield return new WaitForSeconds(0.5f);
         }
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+       
         Advertisement.Banner.Show(reklamIdBanner);
     }
     #endregion

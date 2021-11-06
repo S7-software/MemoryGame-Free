@@ -124,6 +124,7 @@ public class MenuCerceve : MonoBehaviour
 
     public void SahneyeGit()
     {
+        FindObjectOfType<ReklamKontrol>().CloseBanner();
         sesKutusu.PlayBolumSecildi();
         StartCoroutine(SahneyegitCorotuine());
     }
