@@ -12,7 +12,7 @@ public class ReklamKontrol : MonoBehaviour
 
     string gameId = "4078909";
 
-   bool testMode = false;
+    bool testMode = false;
     private string reklamId = "gecis";
     private string reklamIdBanner = "bannerYeniMemoryGame";
 
@@ -25,7 +25,7 @@ public class ReklamKontrol : MonoBehaviour
         secenekler = this;
     }
 
-   
+
     void Start()
     {
         Advertisement.Initialize(gameId, testMode);
@@ -63,7 +63,7 @@ public class ReklamKontrol : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-       
+
         Advertisement.Banner.Show(reklamIdBanner);
     }
     #endregion
