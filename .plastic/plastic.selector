@@ -1,0 +1,3 @@
+rep "Memory Game - Free@S7_Software@cloud"
+  path "/"
+    smartbranch "/main"

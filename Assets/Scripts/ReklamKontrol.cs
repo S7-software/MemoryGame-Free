@@ -36,7 +36,7 @@ public class ReklamKontrol : MonoBehaviour
 
     public void ShowGecis()
     {
-        if (Advertisement.IsReady() && Goster())
+        if ( Goster())
         {
             Advertisement.Show(reklamId);
             SetReklamSonrasiOyunBasliyor(true);
@@ -58,10 +58,9 @@ public class ReklamKontrol : MonoBehaviour
     IEnumerator ShowBannerWhenInitialized()
     {
         Advertisement.Banner.Load(reklamIdBanner);
-        while (!Advertisement.IsReady(reklamIdBanner))
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
+        
+            yield return new WaitForSeconds(0f);
+        
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
 
         Advertisement.Banner.Show(reklamIdBanner);
