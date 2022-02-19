@@ -6,234 +6,234 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
+    path: Assets/_SCENES/Intro.unity
     guid: d2412fd04774649a69fb5dd3a26e4dd7
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 1.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 1.unity
     guid: 0fe55274e79e0f548a00843f372d9a96
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 2.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 2.unity
     guid: fb0024cf3a892154eaffda6b608542a4
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 3.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 3.unity
     guid: 6073ee63508709b48b526d064552c68b
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 4.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 4.unity
     guid: 5ffe29444dd65534e8ade5dbfb3a801d
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 5.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 5.unity
     guid: 39702e3796083aa4e8e78d913895d148
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 6.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 6.unity
     guid: 1b1e59b82c107d34ca67a0f66d6273e4
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 7.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 7.unity
     guid: 2826d276cbd421d4697416736f53cdf5
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 8.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 8.unity
     guid: d8a77d4a4c3ce15428e75c9990498db3
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 9.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 9.unity
     guid: 34d311a0531a7e840ae83993b1e91221
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 10.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 10.unity
     guid: 9a5573b8e96252d4eb979206204a2082
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 11.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 11.unity
     guid: 7b20274cb2f33564c8785b4b8e6f53f6
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 12.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 12.unity
     guid: 5046256b960639640a6f372832d70dcc
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 13.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 13.unity
     guid: 33f9ee49939325e41823b0d720046c5f
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 14.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 14.unity
     guid: b12f56b5c4884c549a114a1a64d10622
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 15.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 15.unity
     guid: 2a2b67de329571e40a25da1b5b6c7d53
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 1/Sahne 16.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 1/Sahne 16.unity
     guid: 4353d7e07fa2d5f4d8ea3ec444b19a61
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 17.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 17.unity
     guid: 61677298ca038544695a83322f9cc3c1
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 18.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 18.unity
     guid: 0601dc861a3463945b80f8b7ee466fa0
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 19.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 19.unity
     guid: 08653f224a9f5ec4a96b43594c58c349
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 20.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 20.unity
     guid: df690cb6a1db5a24c8b64b8babe2b282
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 21.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 21.unity
     guid: e440307534e020e45b386199a46ac346
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 22.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 22.unity
     guid: db83cab3c88ce2146afa27104d6f1299
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 23.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 23.unity
     guid: 5e6d6f8a45aa3784c97e620d7445e66a
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 24.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 24.unity
     guid: 6ebb711c3b7ed0947bd15ba464a70a8d
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 25.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 25.unity
     guid: cc1d8b58994e1db4ea225125bac2acf5
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 26.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 26.unity
     guid: 3087b8f191acb5d45a7e6b238ef7226e
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 27.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 27.unity
     guid: c2981f9fe5a8ca44faeee574d5f4c274
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 28.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 28.unity
     guid: 769a380c41e50ca4d92f32180a5bedb4
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 29.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 29.unity
     guid: c1b3b0c98caffa04a89cc00d7bb13671
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 30.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 30.unity
     guid: 162eb8f912795e04b8ad96283b368aa0
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 31.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 31.unity
     guid: 816638027657ac346b800c614613e80f
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 2/Sahne 32.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 2/Sahne 32.unity
     guid: 802f031055ae04243823a4ec2a871096
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 33.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 33.unity
     guid: 8be1ab11fad545b449054e4036a4b20c
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 34.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 34.unity
     guid: 2a490984a0389f14aab263dd291699ad
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 35.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 35.unity
     guid: db919afc688ea56459d8ec4725737eed
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 36.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 36.unity
     guid: 393a4d5744573234aa3453117312384b
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 37.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 37.unity
     guid: 11f14dfecd844204db551c3412b65a57
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 38.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 38.unity
     guid: e3e0f0b61eafcca40ac52a95c41ef146
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 39.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 39.unity
     guid: 609855cf4e0dd6540be129bc6145283d
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 40.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 40.unity
     guid: 4936b83a23a7e5649b5e5b638adfaf6f
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 41.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 41.unity
     guid: 84133bc8a773dee4ebab9eeac260c7a9
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 42.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 42.unity
     guid: 89e3ff7594fb03b4391c9c393799701a
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 43.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 43.unity
     guid: 53b6eba4441c44e4e84860e0eadc6134
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 44.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 44.unity
     guid: 3d22a86a8067b704e9c6ca2bcfb0f225
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 45.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 45.unity
     guid: d681da72d7533df408f57e97678dd984
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 46.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 46.unity
     guid: 6c2b4d6df6b61864782a77f9cb32003d
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 47.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 47.unity
     guid: e2cece6e799e0d8418599a22c761c652
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 3/Sahne 48.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 3/Sahne 48.unity
     guid: 0607ffb99db69b047a55228b1e8511ae
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 49.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 49.unity
     guid: d261f434fc0854b4fa5be3842c643dec
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 50.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 50.unity
     guid: a8efce5bc65c09b4d9cf6541baed7c96
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 51.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 51.unity
     guid: 98de275030858d44bbdf535ee8c43404
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 52.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 52.unity
     guid: c4fc5343b5e4538488d8f68f7f6d187e
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 53.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 53.unity
     guid: ba982f8049f6b5443b12381e6d1c05b6
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 54.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 54.unity
     guid: 8d97b0ddc82510f41bfb525cb9b5abc2
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 55.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 55.unity
     guid: 18c28e97d20fb4942935441e1774e3a8
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 56.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 56.unity
     guid: 59f2c9d4689c3be439d82424ad4c928d
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 57.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 57.unity
     guid: 9610b14d0ed961f4c96685ad01e05e0e
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 58.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 58.unity
     guid: 79f61328bdfef304abda89c32744f820
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 59.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 59.unity
     guid: cff7051234a976a4ca1f5382759f6b48
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 60.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 60.unity
     guid: 050ec90307d5bf44cab98d0f85719661
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 61.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 61.unity
     guid: f347daa57a2044e47957f890e68b91bc
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 62.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 62.unity
     guid: b82a1a3c549c24d4e8af5d379c179350
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 63.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 63.unity
     guid: 5b7ba7eb1d0ad424e84a421697732eb5
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 4/Sahne 64.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 4/Sahne 64.unity
     guid: f5bbccda2785ddc4d9b717e95647aec1
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 5/Sahne 65.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 5/Sahne 65.unity
     guid: 7e1e9b4971840ae47bd939e0e4455ea7
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 5/Sahne 66.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 5/Sahne 66.unity
     guid: 7ee9b2912e741a24f89bd8df7eef053b
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 5/Sahne 67.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 5/Sahne 67.unity
     guid: 5f020a7d731d1d7459262c5a6a79f896
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 5/Sahne 68.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 5/Sahne 68.unity
     guid: 4fd597eafea904e49a5ee7fd7c64686f
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 5/Sahne 69.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 5/Sahne 69.unity
     guid: a3e7f5592deb5c24d89cf05cc4df97d0
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 5/Sahne 70.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 5/Sahne 70.unity
     guid: 66d310217fd667e4e884d2d07b1b8c3d
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 5/Sahne 71.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 5/Sahne 71.unity
     guid: 36c0fe629ed58184fa2cb415393019c5
   - enabled: 1
-    path: Assets/Scenes/Oyun Sahneleri/Sayfa 5/Sahne 72.unity
+    path: Assets/_SCENES/Oyun Sahneleri/Sayfa 5/Sahne 72.unity
     guid: 739cafb2077d98844ad24a26f159acd8
   - enabled: 1
-    path: Assets/Scenes/Ana.unity
+    path: Assets/_SCENES/Ana.unity
     guid: e677b2e638ea1894681059ddff97a471
   - enabled: 1
-    path: Assets/Scenes/Ayarlar.unity
+    path: Assets/_SCENES/Ayarlar.unity
     guid: 39b838c2733bd794096b19656a5136f2
   - enabled: 1
-    path: Assets/Scenes/Koleksiyon.unity
+    path: Assets/_SCENES/Koleksiyon.unity
     guid: 7fc41e4bb4358e04dbda160393f0539e
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/_SCENES/Menu.unity
     guid: 0a08b48aaa38a4b4faa518d0e95a6c06
   m_configObjects: {}
