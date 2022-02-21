@@ -424,11 +424,11 @@ public class YAZI : MonoBehaviour
             case "BozAyi":
             case "Ayi":
             case "Ayi2": return PlayerPrefs.GetString(AYI);
-            case "Baykus3": 
-            case "Baykus": 
-            case "Baykus4": 
+            case "Baykus3":
+            case "Baykus":
+            case "Baykus4":
             case "BayKus2": return PlayerPrefs.GetString(BAYKUS);
-            case "Boga": 
+            case "Boga":
             case "Boga2": return PlayerPrefs.GetString(BOGA);
             case "Cakal": return PlayerPrefs.GetString(CAKAL);
             case "Cita": return PlayerPrefs.GetString(CITA);
@@ -460,15 +460,15 @@ public class YAZI : MonoBehaviour
             case "Kus2": return PlayerPrefs.GetString(KUS);
             case "Leopar": return PlayerPrefs.GetString(LEOPAR);
             case "Fare": return PlayerPrefs.GetString(FARE);
-            case "Ordek": 
-            case "Ordek2": 
-            case "ordek 3": 
+            case "Ordek":
+            case "Ordek2":
+            case "ordek 3":
             case "Ordek3": return PlayerPrefs.GetString(ORDEK);
             case "YabanOrdegi": return PlayerPrefs.GetString(YABAN_ORDEGI);
             case "Sahin": return PlayerPrefs.GetString(SAHIN);
-            case "Yilan": 
-            case "snake": 
-            case "Yilan2": 
+            case "Yilan":
+            case "snake":
+            case "Yilan2":
             case "Yilan3": return PlayerPrefs.GetString(YILAN);
             case "SuAygiri": return PlayerPrefs.GetString(SUAYGIRI);
             case "Tavuk": return PlayerPrefs.GetString(TAVUK);
@@ -477,10 +477,82 @@ public class YAZI : MonoBehaviour
 
             default:
                 return PlayerPrefs.GetString(ASLAN);
-                
+
         }
     }
-   
+    public static NamesOfSound GetHayvanAdiEnum(string spriteName)
+    {
+        switch (spriteName)
+        {
+            case "Aslan2":
+            case "aslan":
+            case "Aslan": return NamesOfSound.aslan;
+            case "agackakan":
+            case "agac kakan 2":
+            case "AgacKakan": return NamesOfSound.agacKakan1;
+            case "At2":
+            case "at":
+            case "At": return NamesOfSound.at;
+            case "BozAyi":
+            case "Ayi":
+            case "Ayi2": return NamesOfSound.ayi;
+            case "Baykus3":
+            case "Baykus":
+            case "Baykus4":
+            case "BayKus2": return NamesOfSound.baykus;
+            case "Boga":
+            case "Boga2": return NamesOfSound.boga;
+            case "Cakal": return NamesOfSound.cakal;
+            case "Cita": return NamesOfSound.cita;
+            case "Deve": return NamesOfSound.deve;
+            case "Fil":
+            case "Fil2": return NamesOfSound.fil;
+            case "Gergedan":
+            case "Gergedan3":
+            case "Gergedan4":
+            case "Gergedan2": return NamesOfSound.gergedan;
+            case "Geyik":
+            case "Geyik3":
+            case "Geyik2": return NamesOfSound.geyik;
+            case "Horoz": return NamesOfSound.horoz;
+            case "kaplan 2":
+            case "Kaplan": return NamesOfSound.kaplan1;
+            case "kartal":
+            case "kartal2": return NamesOfSound.kartal;
+            case "Kopek":
+            case "kopek": return NamesOfSound.kopek;
+            case "Kopek2": return NamesOfSound.kopekKucuk;
+            case "Koyun": return NamesOfSound.koyun;
+            case "Kurt": return NamesOfSound.kurt;
+            case "Kus":
+            case "kus normal":
+            case "Kus4":
+            case "Kus3":
+            case "Kus5":
+            case "Kus2": return NamesOfSound.kus1;
+            case "Leopar": return NamesOfSound.leopar;
+            case "Fare": return NamesOfSound.mouse;
+            case "Ordek":
+            case "Ordek2":
+            case "ordek 3":
+            case "Ordek3": return NamesOfSound.ordek3;
+            case "YabanOrdegi": return NamesOfSound.ordek3;
+            case "Sahin": return NamesOfSound.sahin;
+            case "Yilan":
+            case "snake":
+            case "Yilan2":
+            case "Yilan3": return NamesOfSound.snake;
+            case "SuAygiri": return NamesOfSound.suAygiri;
+            case "Tavuk": return NamesOfSound.tavuk;
+
+
+
+            default:
+                return NamesOfSound.bayrakKaldir;
+
+        }
+    }
+
     public static void DiliAyarla(string dil)
     {
         HayvanDilleriAta(dil);

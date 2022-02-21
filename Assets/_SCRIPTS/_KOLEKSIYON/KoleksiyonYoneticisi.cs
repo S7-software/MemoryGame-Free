@@ -6,21 +6,23 @@ using UnityEngine.UI;
 
 public class KoleksiyonYoneticisi : MonoBehaviour
 {
+    public static KoleksiyonYoneticisi instance;
     [SerializeField] List<Koleksiyon> koleksiyonlar;
-    [SerializeField] Button btnAnasayfa,
+    [SerializeField]
+    Button btnAnasayfa,
         btnSol,
         btnSag;
     [SerializeField] Sayfalar sayfalar;
     [SerializeField] ResimKutusu resimKutusu;
     int enSonsayfa;
-    Dictionary<int,bool> koleksiyonOlanBolumlar;
+    Dictionary<int, bool> koleksiyonOlanBolumlar;
     List<int> butunKoleksiyonNumaralari;
-  [SerializeField]  SesKutusuUI ses;
     private void Awake()
     {
+        instance = this;
         Tanimlamalar();
         Atamalar();
-        
+
     }
 
     private void Atamalar()
@@ -50,27 +52,27 @@ public class KoleksiyonYoneticisi : MonoBehaviour
 
     private void AcikKoleksiyonlariAta()
     {
-        int  _sayi = (6 * enSonsayfa)-6;
+        int _sayi = (6 * enSonsayfa) - 6;
         int _i = 0;
         int _j = 1;
         foreach (var item in koleksiyonOlanBolumlar)
         {
 
-            if (_j<=_sayi)
+            if (_j <= _sayi)
             {
                 _j++;
                 continue;
             }
-            if (item.Value)//item.Value
+            if (true)//item.Value
             {
-                int gecici = item.Key ;
+                int gecici = item.Key;
                 //print("Key: " + gecici);
                 koleksiyonlar[_i].KoleksiyonAcik(resimKutusu.IstenilenHayvaniVer(gecici));
 
             }
             _i++;
 
-            if (_i==6)
+            if (_i == 6)
             {
                 break;
             }
@@ -81,12 +83,12 @@ public class KoleksiyonYoneticisi : MonoBehaviour
 
     private void ButtonSayfalariAyarla()
     {
-        if (enSonsayfa==1)
+        if (enSonsayfa == 1)
         {
             btnSag.interactable = true;
             btnSol.interactable = false;
         }
-        else if (enSonsayfa==5)
+        else if (enSonsayfa == 5)
         {
             btnSag.interactable = false;
             btnSol.interactable = true;
@@ -101,7 +103,7 @@ public class KoleksiyonYoneticisi : MonoBehaviour
     private void Tanimlamalar()
     {
         ButunKartlariKapa();
-        
+
         enSonsayfa = KAYIT.GetEnSonSayfaKoleksiyon();
         sayfalar.SetSayfa(enSonsayfa);
         koleksiyonOlanBolumlar = new Dictionary<int, bool>();
@@ -124,7 +126,8 @@ public class KoleksiyonYoneticisi : MonoBehaviour
 
     private void ButtonSAG()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
+
         enSonsayfa++;
         ButunKartlariKapa();
 
@@ -134,7 +137,8 @@ public class KoleksiyonYoneticisi : MonoBehaviour
 
     private void ButtonSOL()
     {
-        ses.PlayButtonClickGeri();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
+
         enSonsayfa--;
         ButunKartlariKapa();
         SayfaDegistir();
@@ -151,7 +155,7 @@ public class KoleksiyonYoneticisi : MonoBehaviour
 
     private void AnaSayfaOlustur()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         StartCoroutine(AnaSayfa());
     }
 
@@ -161,5 +165,14 @@ public class KoleksiyonYoneticisi : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Fonksiyon.SahneDegistir(1);
 
+    }
+
+    public void SetButunKoleksiyonSesleriKapat()
+    {
+        Koleksiyon[] koleksiyons = FindObjectsOfType<Koleksiyon>();
+        foreach (Koleksiyon koleksiyon in koleksiyons)
+        {
+            koleksiyon.SetPasifYap();
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundBox : MonoBehaviour
 {
     public static SoundBox instance;
-    AudioSource audioSource;
+  public  AudioSource audioSource;
     private void Awake()
     {
         if (FindObjectsOfType<SoundBox>().Length > 1 && instance != this)
@@ -27,6 +27,13 @@ public class SoundBox : MonoBehaviour
     public void PlayIfDontPlay(NamesOfSound name)
     {
         if (!audioSource.isPlaying) PlayOneShot(name);
+    }
+
+    public void StopAndPlay( NamesOfSound name)
+    {
+        audioSource.Stop();
+
+        PlayOneShot(name);
     }
 
     public void SetVolume(float volume)

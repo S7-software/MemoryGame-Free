@@ -15,10 +15,19 @@ public class Koleksiyon : MonoBehaviour
     [SerializeField] Sprite sptKoleksiyonCaliyor;
     bool koleksiyoVar;
     Button myBtn;
+    bool _caliyor = false;
     private void Start()
     {
         Tanimlamalar();
         ButtonaAtama();
+    }
+    private void Update()
+    {
+        if (!_caliyor) return;
+        if (!SoundBox.instance.audioSource.isPlaying)
+        {
+            SetPasifYap();
+        }
     }
 
     private void ButtonaAtama()
@@ -38,10 +47,13 @@ public class Koleksiyon : MonoBehaviour
 
     private void SesiBaslat()
     {
-        
+        KoleksiyonYoneticisi.instance.SetButunKoleksiyonSesleriKapat();
+      
         imgArkaPlan.sprite = sptKoleksiyonCaliyor;
         myBtn.interactable = false;
-        FindObjectOfType<SesKutusuHayvanlar>().PlayHayvanSesi(imgHayvan.sprite.name);
+        SoundBox.instance.StopAndPlay(YAZI.GetHayvanAdiEnum(imgHayvan.sprite.name));
+        _caliyor = true;
+        // FindObjectOfType<SesKutusuHayvanlar>().PlayHayvanSesi(imgHayvan.sprite.name);
     }
 
 
@@ -54,6 +66,7 @@ public class Koleksiyon : MonoBehaviour
     {
         if (!koleksiyoVar) { return; }
         imgArkaPlan.sprite = sptAcik;
+        _caliyor = false;
         myBtn.interactable = true;
     }
 
