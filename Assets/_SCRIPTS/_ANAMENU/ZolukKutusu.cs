@@ -100,11 +100,8 @@ public class ZolukKutusu : MonoBehaviour
     {
        anim = GetComponent<Animator>();
 
-        if (Fonksiyon.GetEkranTablet())
-        {
-            canvasScaler.referenceResolution = new Vector2(1100, 800);
-        }
       
+        Fonksiyon.SetGameObjectSizeForTablet(canvasScaler, 1100);
     }
 
     IEnumerator SahneyeGit()

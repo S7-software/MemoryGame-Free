@@ -20,14 +20,15 @@ public class AyarlarYoneticisi : MonoBehaviour
     [SerializeField] Text txtAnaMenu;
     [SerializeField] float sure = 0.5f;
     [SerializeField] GameObject hakkimizda;
-    [SerializeField] GameObject uyariKutusuAyarlariSil;
-    [SerializeField]  SesKutusuUI ses;
+    [SerializeField] GameObject uyariKutusuAyarlariSil,_goMenu,_goArkaPlan;
     [SerializeField] SahnelerArasiGecis gecis;
 
     ReklamKontrol reklamKontrol;
     private void Awake()
     {
         reklamKontrol = FindObjectOfType<ReklamKontrol>();
+        Fonksiyon.SetGameObjectSizeForTablet(_goMenu, 0.7f);
+        Fonksiyon.SetGameObjectSizeForTablet(_goArkaPlan, 1.3f);
     }
     void Start()
     {
@@ -44,31 +45,36 @@ public class AyarlarYoneticisi : MonoBehaviour
         sliders[1].value = KAYIT.GetAyarlarMuzikDerecesi();
         sliders[0].onValueChanged.AddListener(SliderSesAyarlar);
         sliders[1].onValueChanged.AddListener(SliderMuzikAyarlar);
-        ses.SetSesDerecesi( KAYIT.GetAyarlarSesDerecesi());
+
+        SoundBox.instance.SetVolume(KAYIT.GetAyarlarSesDerecesi());
     }
 
     public void SliderSesAyarlar(float a)
     {
         if (KAYIT.GetAyarlarSesDerecesi()>a)
         {
-            ses.PlaySesYukselt();
+          SoundBox.instance.PlayIfDontPlay(NamesOfSound.clickGeri1);
         }
         else
         {
-           ses.PlaySesYukselt();
+            SoundBox.instance.PlayIfDontPlay(NamesOfSound.click);
+
         }
         KAYIT.SetAyarlarSesDerecesi(a);
-        ses.SetSesDerecesi(a);
+        SoundBox.instance.SetVolume(a);
+
     }
-  public  void SliderMuzikAyarlar(float a)
+    public  void SliderMuzikAyarlar(float a)
     {
         if (KAYIT.GetAyarlarSesDerecesi() > a)
         {
-            ses.PlaySesYukselt();
+            SoundBox.instance.PlayIfDontPlay(NamesOfSound.clickGeri1);
         }
         else
         {
-           ses.PlaySesYukselt();
+            
+            SoundBox.instance.PlayIfDontPlay(NamesOfSound.click);
+
         }
         KAYIT.SetAyarlarMuziksDerecesi(a);
     }
@@ -99,30 +105,34 @@ public class AyarlarYoneticisi : MonoBehaviour
     private void AnaMenuyeGit()
     {
         reklamKontrol.CloseBanner();
-        ses.PlayButtonClick();
+        SoundBox.instance.StopAndPlay(NamesOfSound.click);
+
 
         StartCoroutine(SahneyeGit("Ana"));
     }
 
     private void HakkimizdaUyariKutusunuAktifEt()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.StopAndPlay(NamesOfSound.click);
+
 
         Instantiate(hakkimizda, transform.position, Quaternion.identity);
     }
 
     private void RekorSilUyariKutusunuAktifEt()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.StopAndPlay(NamesOfSound.click);
+
         Instantiate(uyariKutusuAyarlariSil, transform.position, Quaternion.identity);
     }
 
     public void DilleriAta(string hangi)
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.StopAndPlay(NamesOfSound.click);
+
 
         KAYIT.SetAppDil(hangi);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(SahneyeGit("Ayarlar"));
     }
 
     void DilButtonlariCek(string hangi)

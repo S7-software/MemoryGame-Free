@@ -66,11 +66,17 @@ public class Fonksiyon : MonoBehaviour
         }
     }
 
-    public static void SetGameObjectSizeForTablet(GameObject go,float boyut)
+    public static void SetGameObjectSizeForTablet(GameObject go, float boyut)
     {
-        double a = System.Convert.ToDouble(Screen.height) / System.Convert.ToDouble(Screen.width);
-        if (1.5f > a) go.transform.localScale = new Vector3(boyut, boyut, boyut);
+        if (GetEkranTablet()) go.transform.localScale = new Vector3(boyut, boyut, boyut);
         else go.transform.localScale = Vector3.one;
+    }
+    public static void SetGameObjectSizeForTablet(CanvasScaler canvasScaler, float cozunurluk)
+    {
+        if (GetEkranTablet()) canvasScaler.referenceResolution = new Vector2(cozunurluk, 800);
+        else canvasScaler.referenceResolution = new Vector2(800, 600);
+
+       
     }
 
     public static bool GetEkranTablet()

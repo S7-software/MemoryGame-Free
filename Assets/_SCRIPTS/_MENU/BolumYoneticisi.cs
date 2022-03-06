@@ -20,12 +20,14 @@ public class BolumYoneticisi : MonoBehaviour
         btnAnaSayfa;
 
     [SerializeField] Sayfalar sayfalar;
-    SesKutusuUI sesKutusu;
     [SerializeField] Text txtYildizSayisiVarOlan;
     [SerializeField] Text txtYildizSayisiToplam;
- 
+    [SerializeField] GameObject _goMenu,_arkaPlan;
+
     private void Awake()
     {
+        Fonksiyon.SetGameObjectSizeForTablet(_goMenu, 0.7f);
+        Fonksiyon.SetGameObjectSizeForTablet(_arkaPlan, 1.3f);
         Tanimlamalar();
         Atamalar();
     }
@@ -167,7 +169,6 @@ public class BolumYoneticisi : MonoBehaviour
 
     private void Tanimlamalar()
     {
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
         zorluk = KAYIT.GetOyunZorluk();
         enSonBolum = EnSonBolumuAl(zorluk);
         enSonSayfa = KAYIT.GetMenuKacinciSayfadaKaldi(zorluk);
@@ -203,7 +204,7 @@ public class BolumYoneticisi : MonoBehaviour
     private void AnaSayfayaGit()
     {
         FindObjectOfType<ReklamKontrol>().CloseBanner();
-        sesKutusu.PlayButtonClickGeri();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
         StartCoroutine(AnaSayfa());
     }
     IEnumerator AnaSayfa()
@@ -228,7 +229,7 @@ public class BolumYoneticisi : MonoBehaviour
     }
     void SayfaGeri()
     {
-        sesKutusu.PlayButtonClickGeri();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
         if (btnIleri.interactable == false) { btnIleri.interactable = true; }
         enSonSayfa--;
         sayfalar.SetSayfa(enSonSayfa);
@@ -239,7 +240,7 @@ public class BolumYoneticisi : MonoBehaviour
     }
     void SayfaIleri()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         if (btnGeri.interactable == false) { btnGeri.interactable = true; }
         enSonSayfa++;
         sayfalar.SetSayfa(enSonSayfa);

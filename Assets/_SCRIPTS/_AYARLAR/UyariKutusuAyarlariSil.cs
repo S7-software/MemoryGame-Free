@@ -11,9 +11,9 @@ public class UyariKutusuAyarlariSil : MonoBehaviour
     [SerializeField] List<Text> txtYazi;
     [SerializeField] Button btnOnay, btnIptal;
     Animator myAnim;
-    SesKutusuUI ses;
     void Start()
     {
+        Fonksiyon.SetGameObjectSizeForTablet(GetComponent<CanvasScaler>(), 1000);
         Tanimlar();
         Atamalar();
 
@@ -33,14 +33,15 @@ public class UyariKutusuAyarlariSil : MonoBehaviour
 
     private void IptalButton()
     {
-        ses.PlayButtonClickGeri();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
         myAnim.SetTrigger("cikis");
         Destroy(gameObject, 0.5f);
     }
 
     private void CikisButton()
     {
-        ses.PlayButtonClick();
+        ReklamKontrol.secenekler.CloseBanner();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Intro");
     }
@@ -53,7 +54,6 @@ public class UyariKutusuAyarlariSil : MonoBehaviour
 
     private void Tanimlar()
     {
-        ses = GameObject.Find("SesKutusu").GetComponent<SesKutusuUI>() ;
         myAnim = GetComponent<Animator>();
     }
 }

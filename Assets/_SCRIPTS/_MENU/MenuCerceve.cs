@@ -25,7 +25,6 @@ public class MenuCerceve : MonoBehaviour
     [SerializeField] Text txtRekor;
     [SerializeField] Text txtNumara;
     int _cerceveNumarasi;
-    SesKutusuUI sesKutusu;
    
 
 
@@ -78,7 +77,6 @@ public class MenuCerceve : MonoBehaviour
 
     private void Tanimlamalar()
     {
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
     }
 
     public void SetHangiBolume()
@@ -125,7 +123,7 @@ public class MenuCerceve : MonoBehaviour
     public void SahneyeGit()
     {
         FindObjectOfType<ReklamKontrol>().CloseBanner();
-        sesKutusu.PlayBolumSecildi();
+        SoundBox.instance.PlayOneShot(NamesOfSound.bolumSecme);
         StartCoroutine(SahneyegitCorotuine());
     }
 

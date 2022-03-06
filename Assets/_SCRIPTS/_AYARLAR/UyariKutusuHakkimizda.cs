@@ -17,7 +17,6 @@ public class UyariKutusuHakkimizda : MonoBehaviour
     [SerializeField] Button btnAyarlar;
 
     Animator myAnimator;
-    SesKutusuUI ses;
     void Start()
     {
         Tanimlamalar();
@@ -27,8 +26,9 @@ public class UyariKutusuHakkimizda : MonoBehaviour
 
     private void Tanimlamalar()
     {
-        ses = FindObjectOfType<SesKutusuUI>();
       myAnimator = GetComponent<Animator>();
+
+        Fonksiyon.SetGameObjectSizeForTablet(GetComponent<CanvasScaler>(), 1000);
     }
 
     private void ButtonlaraAtamaYap()
@@ -43,41 +43,42 @@ public class UyariKutusuHakkimizda : MonoBehaviour
 
     private void GizlilikPolitikasi()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
+
 
         Application.OpenURL("http://s7-software.com");
     }
 
     private void Mail1()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
 
         Application.OpenURL("mailto:sinantekin90@gmail.com");
     }
     private void Mail2()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
 
         Application.OpenURL("mailto:sinantekin@s7-software.com");
     }
 
     private void SiteyeGit()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
 
         Application.OpenURL("http://s7-software.com");
         
     }
     private void UyariKutusunuKapat()
     {
-        ses.PlayButtonClickGeri();
-      myAnimator.SetBool("gecis", true);
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
+        myAnimator.SetBool("gecis", true);
         Destroy(gameObject, 0.5f);
     }
 
     private void AnaSayfayaGit()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         StartCoroutine(AnaSayfa());
     }
 
