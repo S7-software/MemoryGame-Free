@@ -15,7 +15,6 @@ public class NasilOynanir : MonoBehaviour
     [SerializeField] GameObject cursor;
     [SerializeField] GameObject onay;
     Animator anim;
-    SesKutusuUI sesKutusu;
     int _baslangicSayisi = 0;
 
     bool oyunda;
@@ -30,7 +29,6 @@ public class NasilOynanir : MonoBehaviour
 
     private void Tanimlamalar()
     {
-        sesKutusu = GameObject.Find("SesKutusu").GetComponent<SesKutusuUI>();
         oyunda = SceneManager.GetActiveScene().name == "Ana" ? false : true;
         OyundaysaYapilacak(oyunda);
     }
@@ -66,7 +64,7 @@ public class NasilOynanir : MonoBehaviour
 
     private void SagButton()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         _baslangicSayisi++;
         ButtonlariAktifEt(_baslangicSayisi);
     }
@@ -151,14 +149,14 @@ public class NasilOynanir : MonoBehaviour
     }
     private void OnayButton()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         if (oyunda) FindObjectOfType<Saat>().OyunDevamEttir();
         Destroy(gameObject);
     }
 
     private void SolButton()
     {
-        sesKutusu.PlayButtonClickGeri();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
         _baslangicSayisi--;
         ButtonlariAktifEt(_baslangicSayisi);
 

@@ -8,7 +8,6 @@ public class btnNasilOynanir : MonoBehaviour
 {
     [SerializeField] GameObject NasilOynanirKutusu;
     Button myButton;
-    SesKutusuUI sesKutusu;
     void Start()
     {
         Tanimlamalar();
@@ -22,11 +21,10 @@ public class btnNasilOynanir : MonoBehaviour
     private void Tanimlamalar()
     {
         myButton = GetComponent<Button>();
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
     }
     public void NasiOynanirYarat()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         Instantiate(NasilOynanirKutusu, transform.position, Quaternion.identity);
     }
 

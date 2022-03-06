@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Fonksiyon : MonoBehaviour
 {
     /// <summary>
-    /// Girilen int süreyi dakika ve saniye olarak string formatýnda verir. Örnek 143 --> 02:23
+    /// Girilen int s?reyi dakika ve saniye olarak string format?nda verir. ?rnek 143 --> 02:23
     /// </summary>
     /// <param name="sure"></param>
     /// <returns></returns>
@@ -64,6 +64,20 @@ public class Fonksiyon : MonoBehaviour
             
             default: SceneManager.LoadScene(_hangi); break;
         }
+    }
+
+    public static void SetGameObjectSizeForTablet(GameObject go,float boyut)
+    {
+        double a = System.Convert.ToDouble(Screen.height) / System.Convert.ToDouble(Screen.width);
+        if (1.5f > a) go.transform.localScale = new Vector3(boyut, boyut, boyut);
+        else go.transform.localScale = Vector3.one;
+    }
+
+    public static bool GetEkranTablet()
+    {
+        double a = System.Convert.ToDouble(Screen.height) / System.Convert.ToDouble(Screen.width);
+        if (1.5f > a) return true;
+        return false;
     }
 
 }

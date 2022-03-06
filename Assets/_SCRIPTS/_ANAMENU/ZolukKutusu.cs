@@ -12,9 +12,8 @@ public class ZolukKutusu : MonoBehaviour
     [SerializeField] Text txtYildizKolay;
     [SerializeField] Text txtYildizNormal;
     [SerializeField] Text txtYildizZor;
-
+    [SerializeField] CanvasScaler canvasScaler;
     Animator anim;
-    SesKutusuUI ses;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,15 +60,17 @@ public class ZolukKutusu : MonoBehaviour
     #region Handler Button
     private void Geri()
     {
-        ses.PlayButtonClickGeri();
-       anim.SetTrigger("geri");
+ 
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
+
+        anim.SetTrigger("geri");
         StartCoroutine(GeriGit());
         ReklamKontrol.secenekler.CloseBanner();
     }
    
     private void Zor()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         KAYIT.SetOyunZorluk(2);
         StartCoroutine(SahneyeGit());
         ReklamKontrol.secenekler.CloseBanner();
@@ -77,7 +78,7 @@ public class ZolukKutusu : MonoBehaviour
 
     private void Normal()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
 
         KAYIT.SetOyunZorluk(1);
         StartCoroutine(SahneyeGit());
@@ -86,7 +87,7 @@ public class ZolukKutusu : MonoBehaviour
 
     private void Suresiz()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         KAYIT.SetOyunZorluk(0);
         StartCoroutine(SahneyeGit());
         ReklamKontrol.secenekler.CloseBanner();
@@ -97,8 +98,12 @@ public class ZolukKutusu : MonoBehaviour
 
     private void Tanimlamalar()
     {
-        ses = FindObjectOfType<SesKutusuUI>();
        anim = GetComponent<Animator>();
+
+        if (Fonksiyon.GetEkranTablet())
+        {
+            canvasScaler.referenceResolution = new Vector2(1100, 800);
+        }
       
     }
 

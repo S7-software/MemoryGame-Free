@@ -14,12 +14,16 @@ public class KoleksiyonYoneticisi : MonoBehaviour
         btnSag;
     [SerializeField] Sayfalar sayfalar;
     [SerializeField] ResimKutusu resimKutusu;
+    [SerializeField] GameObject _goKoleksiyon,_arkaPlan;
     int enSonsayfa;
     Dictionary<int, bool> koleksiyonOlanBolumlar;
     List<int> butunKoleksiyonNumaralari;
     private void Awake()
     {
         instance = this;
+        Fonksiyon.SetGameObjectSizeForTablet(_goKoleksiyon, 0.7f);
+        Fonksiyon.SetGameObjectSizeForTablet(btnAnasayfa.gameObject, 0.85f);
+        Fonksiyon.SetGameObjectSizeForTablet(_arkaPlan.gameObject, 1.3f);
         Tanimlamalar();
         Atamalar();
 
@@ -63,7 +67,7 @@ public class KoleksiyonYoneticisi : MonoBehaviour
                 _j++;
                 continue;
             }
-            if (true)//item.Value
+            if (item.Value)//item.Value
             {
                 int gecici = item.Key;
                 //print("Key: " + gecici);

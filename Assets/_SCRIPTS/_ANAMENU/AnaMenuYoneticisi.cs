@@ -9,8 +9,8 @@ public class AnaMenuYoneticisi : MonoBehaviour
 {
     [SerializeField] List<Button> buttonlar;
     [SerializeField] ZolukKutusu zolukKutusu;
-    SesKutusuUI sesKutusu;
     [SerializeField] SahnelerArasiGecis gecisEfekti;
+    [SerializeField] GameObject _goMenu,_goArkaPlan;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,27 +49,30 @@ public class AnaMenuYoneticisi : MonoBehaviour
 
     private void AyarlaraGit()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         StartCoroutine(SahneyeGit("Ayarlar"));
     }
 
     private void KoleksiyonlaraGit()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
+
 
         StartCoroutine(SahneyeGit("Koleksiyon"));
     }
 
     private void ZorlukPenceresiniAc()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
+
         zolukKutusu.SetActive();
         ReklamKontrol.secenekler.ShowBanner();
     }
 
     private void Tanimlamalar()
     {
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
+        Fonksiyon.SetGameObjectSizeForTablet(_goArkaPlan, 1.3f);
+        Fonksiyon.SetGameObjectSizeForTablet(_goMenu, .7f);
     }
 
     IEnumerator SahneyeGit(string hangiSahne)
