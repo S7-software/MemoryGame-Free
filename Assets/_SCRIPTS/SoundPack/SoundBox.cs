@@ -12,10 +12,9 @@ public class SoundBox : MonoBehaviour
         {
             Destroy(this);
         }
-        else
-        {
-            DontDestroyOnLoad(this);
-        }
+       
+            //DontDestroyOnLoad(this);
+        
         instance = this;
         audioSource = GetComponent<AudioSource>();
     }

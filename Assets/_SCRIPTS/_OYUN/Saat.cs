@@ -27,16 +27,17 @@ public class Saat : MonoBehaviour
     Button btnCikis;
     btnNasilOynanir buttonNasiOynanir;
     int toplamKartSayisi;
-    SesKutusuUI sesKutusu;
     private void Awake()
     {
         secenekler = this;
+
+       
     }
 
     void Start()
     {
         Tanimlama();
-
+        if (Fonksiyon.GetEkranTablet()) GetComponent<RectTransform>().anchoredPosition = new Vector3(-125f, -70, 0);
 
         //          Reklam sonrası oyun başlama tepkisi
         if (ReklamKontrol.GetReklamSonrasiOyunBasladi())
@@ -64,7 +65,6 @@ public class Saat : MonoBehaviour
         oyunBitti = false;
         oyunYoneticisi = FindObjectOfType<OyunYoneticisi>();
         toplamKartSayisi = oyunYoneticisi.GetKartSayisi();
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
         YildizlariGoster();
 
     }
@@ -120,7 +120,7 @@ public class Saat : MonoBehaviour
     {
         btnCikis.interactable = true;
         buttonNasiOynanir.SetInteractable(true);
-        sesKutusu.PlayOyunBasladi();
+        SoundBox.instance.PlayOneShot(NamesOfSound.oyunBasladi);
     }
 
     IEnumerator OyunuBaslat()

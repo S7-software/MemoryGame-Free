@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5867992961877215642}
   - component: {fileID: 5867992961877215643}
   - component: {fileID: 5867992961877215623}
+  - component: {fileID: 6439289774914849733}
   m_Layer: 5
   m_Name: btnNasilOynanir
   m_TagString: Untagged
@@ -135,6 +136,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NasilOynanirKutusu: {fileID: 644669653932253622, guid: efac37513a890ac4f8bbbd5be96501d2, type: 3}
+--- !u!114 &6439289774914849733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5867992961877215622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7ce1e275f6e486f9eba41744795246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 0.85
+  isCanvas: 0
 --- !u!1 &5867992962052386897
 GameObject:
   m_ObjectHideFlags: 0

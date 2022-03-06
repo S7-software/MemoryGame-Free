@@ -34,7 +34,7 @@ public class PanelReklamSonrasi : MonoBehaviour
         }
         Saat.secenekler.CoroutineOyunuBaslatIlkBesSaniye();
         ReklamKontrol.SetReklamSonrasiOyunBasliyor(false);
-        FindObjectOfType<SesKutusuUI>().PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         SetActive(false);
     }
 

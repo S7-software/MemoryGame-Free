@@ -15,7 +15,6 @@ public class UyariKutusu : MonoBehaviour
     public List<Text>mesaj;
     public Text baslik;
     Animator anim;
-    SesKutusuUI ses;
 
     void Start()
     {
@@ -31,7 +30,6 @@ public class UyariKutusu : MonoBehaviour
 
     private void Tanimlamalar()
     {
-        ses = FindObjectOfType<SesKutusuUI>();
         anim = GetComponent<Animator>();
         CarpiButton();
         OnayButton();
@@ -39,12 +37,13 @@ public class UyariKutusu : MonoBehaviour
 
     private void CarpiButton()
     {
-        ses.PlayButtonClickGeri();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
         buttonlar[0].onClick.AddListener(Iptal);
     }
     private void Iptal()
     {
-        ses.PlayButtonClickGeri();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
+
 
         anim.SetTrigger("triggerCikis");
         Destroy(gameObject,0.6f);
@@ -57,7 +56,8 @@ public class UyariKutusu : MonoBehaviour
 
     private void Onay()
     {
-        ses.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
+
         Application.Quit();
     }
 }   

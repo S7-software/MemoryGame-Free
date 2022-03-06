@@ -16,7 +16,6 @@ public class ScButton : MonoBehaviour
     public bool kontrolAnasayfayaDon;
 
     private Button button;
-    SesKutusuUI sesKutusu;
 
 
     private void Start()
@@ -47,14 +46,14 @@ public class ScButton : MonoBehaviour
 
     private void SahneyeGit()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
 
         SceneManager.LoadScene(hangiSahneye);
     }
 
     private void KONTROLANASAYFAYAGIT()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         SceneManager.LoadScene(1);
     }
 
@@ -62,7 +61,7 @@ public class ScButton : MonoBehaviour
 
     private void Tanimlama()
     {
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
+
         button = GetComponent<Button>();
         
     }

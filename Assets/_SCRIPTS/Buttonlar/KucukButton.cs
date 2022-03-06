@@ -17,7 +17,7 @@ public class KucukButton : MonoBehaviour
     public bool kontrolAnasayfayaDon;
 
     private Button button;
-    SesKutusuUI sesKutusu;
+
 
     private void Start()
     {
@@ -48,14 +48,14 @@ public class KucukButton : MonoBehaviour
 
     private void SahneyeGit()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
 
         SceneManager.LoadScene(hangiSahneye);
     }
 
     private void KONTROLANASAYFAYAGIT()
     {
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         SceneManager.LoadScene("Ana");
     }
 
@@ -64,6 +64,6 @@ public class KucukButton : MonoBehaviour
     private void Tanimlama()
     {
         button = GetComponent<Button>();
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
+       
     }
 }

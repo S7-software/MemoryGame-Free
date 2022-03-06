@@ -32,7 +32,6 @@ public class OyunYoneticisi : MonoBehaviour
     public GameObject canvasSonuc;
 
     bool ilkDefaKoleksiyon;
-    SesKutusuUI sesKutusu;
     #endregion
 
     #region Awake, Update
@@ -73,7 +72,6 @@ public class OyunYoneticisi : MonoBehaviour
 
         resimKutusu.Tanimlamalar(toplamKartSayisi, hangiBolum);
         ilkDefaKoleksiyon = KAYIT.GetRekorSure(zorluk, hangiBolum) == 0 ? true : false;
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
 
     }
 
@@ -218,13 +216,13 @@ public class OyunYoneticisi : MonoBehaviour
                     koleksiyoBulundu.SetActive(resimKutusu.IstenilenHayvaniVer(_spriteName), YAZI.GetHayvanAdi(_spriteName));
                     KAYIT.SetKoleksiyonuKaydet(hangiBolum);
 
-                    GameObject hayvanSesi = Instantiate(sesKutusuHayvanlar, sesKutusu.transform.position, Quaternion.identity);
+                    GameObject hayvanSesi = Instantiate(sesKutusuHayvanlar, transform.position, Quaternion.identity);
                     hayvanSesi.GetComponent<SesKutusuHayvanlar>().PlayHayvanSesi(_spriteName);
                 }
-                else { sesKutusu.PlayBolumTamamlandi(); }
+                else { SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi1); }
 
             }
-            else { sesKutusu.PlayBolumTamamlandi(); }
+            else { SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi1); }
 
         }
         else if (zorluk == 2)
@@ -237,19 +235,19 @@ public class OyunYoneticisi : MonoBehaviour
                     koleksiyoBulundu.SetActive(resimKutusu.IstenilenHayvaniVer(_spriteName), YAZI.GetHayvanAdi(_spriteName));
                     KAYIT.SetKoleksiyonuKaydet(hangiBolum);
 
-                    GameObject hayvanSesi = Instantiate(sesKutusuHayvanlar, sesKutusu.transform.position, Quaternion.identity);
+                    GameObject hayvanSesi = Instantiate(sesKutusuHayvanlar, transform.position, Quaternion.identity);
                     hayvanSesi.GetComponent<SesKutusuHayvanlar>().PlayHayvanSesi(_spriteName);
 
                 }
-                else { sesKutusu.PlayBolumTamamlandi(); }
+                else { SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi1); }
 
             }
-            else { sesKutusu.PlayBolumTamamlandi(); }
+            else { SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi1); }
 
         }
         else
         {
-            sesKutusu.PlayBolumTamamlandi();
+            SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi1);
 
         }
     }
@@ -269,7 +267,7 @@ public class OyunYoneticisi : MonoBehaviour
     public void Kaybetti()
     {
 
-        sesKutusu.PlayBolumTamamlanmadi();
+        SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi0);
         CanvasSonucGoster(false, 0, (int)saat.slider.maxValue - saat.mevcutSure);
         Kart[] _kartlar = FindObjectsOfType<Kart>();
         foreach (Kart kart in _kartlar)

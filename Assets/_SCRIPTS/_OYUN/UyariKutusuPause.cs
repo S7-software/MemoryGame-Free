@@ -12,7 +12,6 @@ public class UyariKutusuPause : MonoBehaviour
     public Animator myAnim;
 
     Saat saat;
-    SesKutusuUI sesKutusu;
 
     int hangiSahne;
     void Start()
@@ -32,24 +31,24 @@ public class UyariKutusuPause : MonoBehaviour
 
     private void OyunaDevam()
     {
-        
-        sesKutusu.PlayButtonClickGeri();
+
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         StartCoroutine(CikisAnimasyon());
     }
     private void MenuyeGit()
     {
         ReklamKontrol.secenekler.CloseBanner();
 
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
         ReklamGoster();
-        SceneManager.LoadScene("Menu");
+        Invoke(nameof(MenuyeGit2), 0.3f);
     }
-
+    void MenuyeGit2() { SceneManager.LoadScene("Menu"); }
     private void AyniSayfayaGit()
     {
         ReklamKontrol.secenekler.CloseBanner();
 
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.clickGeri1);
         ReklamGoster();
         SceneManager.LoadScene(hangiSahne);
     }
@@ -58,7 +57,6 @@ public class UyariKutusuPause : MonoBehaviour
     {
         hangiSahne = SceneManager.GetActiveScene().buildIndex;
         myAnim = canvasPause.GetComponent<Animator>();
-        sesKutusu = GameObject.Find("SesKutusu").GetComponent<SesKutusuUI>();
     }
     IEnumerator CikisAnimasyon()
     {

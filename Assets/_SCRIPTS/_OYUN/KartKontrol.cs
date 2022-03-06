@@ -20,7 +20,6 @@ public class KartKontrol : MonoBehaviour
     Saat saat;
     OyunYoneticisi oyunYoneticisi;
     int _zorluk;
-    SesKutusuUI sesKutusu;
     GameObject konum;
 
 
@@ -38,7 +37,6 @@ public class KartKontrol : MonoBehaviour
         saat = FindObjectOfType<Saat>();
         oyunYoneticisi = FindObjectOfType<OyunYoneticisi>();
         _zorluk = oyunYoneticisi.GetZorluk();
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
         konum = GameObject.Find("cikacakYer");
     }
 
@@ -83,7 +81,7 @@ public class KartKontrol : MonoBehaviour
             // iki açık kart aynı
             if (acikKart2.sprtHayvan.name == acikKart1.sprtHayvan.name)
             {
-                sesKutusu.PlayKartBulma();
+                SoundBox.instance.PlayOneShot(NamesOfSound.kartBulma);
                 acikKart1.GetComponentInParent<Transform>().SetParent(cikarilanKartlar);
                 acikKart2.GetComponentInParent<Transform>().SetParent(cikarilanKartlar);
                 acikKart1.SetCerceveKartBulundu();

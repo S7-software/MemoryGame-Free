@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4519505133381976074}
   - component: {fileID: 7019533793356666608}
+  - component: {fileID: 1101757434007547319}
   m_Layer: 5
   m_Name: Saat
   m_TagString: Untagged
@@ -144,6 +145,20 @@ MonoBehaviour:
   - {fileID: 8965309205807445553}
   - {fileID: 5587626004810130962}
   oyunBitti: 0
+--- !u!114 &1101757434007547319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831531105421377398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7ce1e275f6e486f9eba41744795246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 0.85
+  isCanvas: 0
 --- !u!1 &1982416794182561140
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,7 +53,7 @@ public class Yaratici : MonoBehaviour
 
     public void UyariCercevesiCikar()
     {
-        FindObjectOfType<SesKutusuUI>().PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         GameObject uyariKutusu = Instantiate(objeler[0], transform.position, transform.rotation) as GameObject;
         uyariKutusu.transform.SetParent(transform);
         uyariKutusu.transform.localScale = new Vector3(1, 1, 1);

@@ -21,7 +21,6 @@ public class Kart : MonoBehaviour
     public GameObject Kartlar;
     public string cerceveAdi = "Davuk";
     public Sprite[] sprSecili;
-    SesKutusuUI sesKutusu;
     int hangiBolum;
 
 
@@ -56,7 +55,6 @@ public class Kart : MonoBehaviour
         kartAcik = false;
         myCollider = GetComponent<BoxCollider2D>();
         kartKontrol = FindObjectOfType<KartKontrol>();
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
         if (!ReklamKontrol.GetReklamSonrasiOyunBasladi())
         {
             IlkAcilis();
@@ -83,7 +81,7 @@ public class Kart : MonoBehaviour
     void OnMouseDown()
     {
         KartAc();
-        sesKutusu.PlayKartSec();
+        SoundBox.instance.PlayOneShot(NamesOfSound.kartSecme);
     }
 
     void KartAc()

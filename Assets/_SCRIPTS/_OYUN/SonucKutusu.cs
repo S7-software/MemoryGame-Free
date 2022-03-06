@@ -12,7 +12,6 @@ public class SonucKutusu : MonoBehaviour
     public Image[] yildizlar;
     GameObject canvasSonuc;
     int _hangiSahne;
-    SesKutusuUI sesKutusu;
 
  [SerializeField]   Text txtBolumNumarasi;
 
@@ -40,7 +39,6 @@ public class SonucKutusu : MonoBehaviour
 
     private void Tanimlamalar()
     {
-        sesKutusu = FindObjectOfType<SesKutusuUI>();
         _hangiSahne = SceneManager.GetActiveScene().buildIndex;
         buttonlar[0].onClick.AddListener(MenuyeDon);
         buttonlar[1].onClick.AddListener(OyunuTekrarla);
@@ -52,7 +50,7 @@ public class SonucKutusu : MonoBehaviour
     {
         ReklamKontrol.secenekler.ShowGecis();
 
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
         SceneManager.LoadScene(_hangiSahne + 1);
     }
 
@@ -60,7 +58,7 @@ public class SonucKutusu : MonoBehaviour
     {
         ReklamKontrol.secenekler.ShowGecis();
 
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
 
         SceneManager.LoadScene(_hangiSahne);
     }
@@ -69,7 +67,7 @@ public class SonucKutusu : MonoBehaviour
     {
         ReklamKontrol.secenekler.ShowGecis();
 
-        sesKutusu.PlayButtonClick();
+        SoundBox.instance.PlayOneShot(NamesOfSound.click);
 
         SceneManager.LoadScene("Menu");
     }
