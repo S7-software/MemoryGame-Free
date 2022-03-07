@@ -12,7 +12,7 @@ public class ReklamKontrol : MonoBehaviour
 
     string gameId = "4078909";
 
-    bool testMode = false;
+    bool testMode = true;
     private string reklamId = "gecis";
     private string reklamIdBanner = "bannerYeniMemoryGame";
 
@@ -58,10 +58,10 @@ public class ReklamKontrol : MonoBehaviour
     IEnumerator ShowBannerWhenInitialized()
     {
         Advertisement.Banner.Load(reklamIdBanner);
-        
-            yield return new WaitForSeconds(0f);
-        
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+        yield return new WaitForSeconds(0f);
+        
+        
 
         Advertisement.Banner.Show(reklamIdBanner);
     }

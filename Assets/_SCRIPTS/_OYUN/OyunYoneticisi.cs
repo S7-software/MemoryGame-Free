@@ -21,7 +21,6 @@ public class OyunYoneticisi : MonoBehaviour
     public int hangiBolum;
     public bool oyunBitti;
     [SerializeField] KoleksiyonBulundu koleksiyoBulundu;
-    [SerializeField] GameObject sesKutusuHayvanlar;
 
 
 
@@ -216,8 +215,8 @@ public class OyunYoneticisi : MonoBehaviour
                     koleksiyoBulundu.SetActive(resimKutusu.IstenilenHayvaniVer(_spriteName), YAZI.GetHayvanAdi(_spriteName));
                     KAYIT.SetKoleksiyonuKaydet(hangiBolum);
 
-                    GameObject hayvanSesi = Instantiate(sesKutusuHayvanlar, transform.position, Quaternion.identity);
-                    hayvanSesi.GetComponent<SesKutusuHayvanlar>().PlayHayvanSesi(_spriteName);
+                    SoundBox.instance.PlayOneShot(YAZI.GetHayvanAdiEnum(_spriteName));
+                   
                 }
                 else { SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi1); }
 
@@ -235,8 +234,8 @@ public class OyunYoneticisi : MonoBehaviour
                     koleksiyoBulundu.SetActive(resimKutusu.IstenilenHayvaniVer(_spriteName), YAZI.GetHayvanAdi(_spriteName));
                     KAYIT.SetKoleksiyonuKaydet(hangiBolum);
 
-                    GameObject hayvanSesi = Instantiate(sesKutusuHayvanlar, transform.position, Quaternion.identity);
-                    hayvanSesi.GetComponent<SesKutusuHayvanlar>().PlayHayvanSesi(_spriteName);
+                    SoundBox.instance.PlayOneShot(YAZI.GetHayvanAdiEnum(_spriteName));
+
 
                 }
                 else { SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi1); }

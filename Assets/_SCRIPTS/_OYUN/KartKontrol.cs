@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class KartKontrol : MonoBehaviour
 {
-
+    public static KartKontrol instance;
     [Header("Parametreler")]
     [Range(0f, 3f)] public float kapanmaSuresi = 0.55f;
 
@@ -23,7 +23,10 @@ public class KartKontrol : MonoBehaviour
     GameObject konum;
 
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         Tanimlanacaklar();
