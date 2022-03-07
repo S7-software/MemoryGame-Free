@@ -40,35 +40,38 @@ public class SonucKutusu : MonoBehaviour
     private void Tanimlamalar()
     {
         _hangiSahne = SceneManager.GetActiveScene().buildIndex;
-        buttonlar[0].onClick.AddListener(MenuyeDon);
-        buttonlar[1].onClick.AddListener(OyunuTekrarla);
-        buttonlar[2].onClick.AddListener(SonrakiOyun);
+        buttonlar[0].onClick.AddListener(()=>StartCoroutine( MenuyeDon()));
+        buttonlar[1].onClick.AddListener(() => StartCoroutine(OyunuTekrarla()));
+        buttonlar[2].onClick.AddListener(() => StartCoroutine(SonrakiOyun()));
 
     }
 
-    private void SonrakiOyun()
+    IEnumerator SonrakiOyun()
     {
         ReklamKontrol.secenekler.ShowGecis();
 
         SoundBox.instance.PlayOneShot(NamesOfSound.click);
+        yield return new WaitForSeconds(0.2f);
+
         SceneManager.LoadScene(_hangiSahne + 1);
     }
 
-    private void OyunuTekrarla()
+    IEnumerator OyunuTekrarla()
     {
         ReklamKontrol.secenekler.ShowGecis();
 
         SoundBox.instance.PlayOneShot(NamesOfSound.click);
+        yield return new WaitForSeconds(0.2f);
 
         SceneManager.LoadScene(_hangiSahne);
     }
 
-    private void MenuyeDon()
+    IEnumerator MenuyeDon()
     {
         ReklamKontrol.secenekler.ShowGecis();
 
         SoundBox.instance.PlayOneShot(NamesOfSound.click);
-
+        yield return new WaitForSeconds(0.2f);
         SceneManager.LoadScene("Menu");
     }
 
@@ -78,6 +81,8 @@ public class SonucKutusu : MonoBehaviour
 
 
     }
+
+
 
     public void SonucKutusunuCikar(int yildizSayisi, int sure, bool rekorVar)
     {

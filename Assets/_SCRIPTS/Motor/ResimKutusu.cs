@@ -72,7 +72,7 @@ public class ResimKutusu : MonoBehaviour
         {
             if (item.name==hangi)
             {
-                print(item.name);
+              //  print(item.name);
                 return item;
                
             }

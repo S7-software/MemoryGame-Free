@@ -13,6 +13,7 @@ public class ReklamKontrol : MonoBehaviour
     string gameId = "4078909";
 
     bool testMode = true;
+    bool testTelefon = true;
     private string reklamId = "gecis";
     private string reklamIdBanner = "bannerYeniMemoryGame";
 
@@ -36,6 +37,7 @@ public class ReklamKontrol : MonoBehaviour
 
     public void ShowGecis()
     {
+        if (testTelefon) return;
         if ( Goster())
         {
             Advertisement.Show(reklamId);
@@ -46,11 +48,15 @@ public class ReklamKontrol : MonoBehaviour
     #region Banner
     public void ShowBanner()
     {
+        if (testTelefon) return;
+
         StartCoroutine(ShowBannerWhenInitialized());
     }
 
     public void CloseBanner()
     {
+        if (testTelefon) return;
+
         Advertisement.Banner.Hide();
     }
 
