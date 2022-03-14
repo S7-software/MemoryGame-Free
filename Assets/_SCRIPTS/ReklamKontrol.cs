@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class ReklamKontrol : MonoBehaviour
+public class ReklamKontrol : MonoBehaviour,IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
     #region Degisktenler
     public static ReklamKontrol secenekler;
@@ -13,11 +13,12 @@ public class ReklamKontrol : MonoBehaviour
     string gameId = "4078909";
 
     bool testMode = true;
-    bool testTelefon = true;
+    bool testTelefon = false;
     private string reklamId = "gecis";
     private string reklamIdBanner = "bannerYeniMemoryGame";
+    private string reklamIdOdul = "reklamOdulMemoryGameEkSure";
 
-
+    
     #endregion
 
     #region Awake Start Update
@@ -29,7 +30,7 @@ public class ReklamKontrol : MonoBehaviour
 
     void Start()
     {
-        Advertisement.Initialize(gameId, testMode);
+        Advertisement.Initialize(gameId, testMode, secenekler);
 
     }
     #endregion
@@ -40,7 +41,7 @@ public class ReklamKontrol : MonoBehaviour
         if (testTelefon) return;
         if ( Goster())
         {
-            Advertisement.Show(reklamId);
+            Advertisement.Show(reklamId, secenekler);
             SetReklamSonrasiOyunBasliyor(true);
 
         }
@@ -95,6 +96,11 @@ public class ReklamKontrol : MonoBehaviour
         }
     }
 
+    public void ShowOdul()
+    {
+        if (testTelefon) return;
+        Advertisement.Show(reklamIdOdul,secenekler);
+    }
 
     #region Static Kontroller
     public static bool GetReklamSonrasiOyunBasladi()
@@ -106,5 +112,65 @@ public class ReklamKontrol : MonoBehaviour
         return PlayerPrefs.GetInt(REKLAM_GOSTERILDI) == 1 ? true : false;
     }
     public static void SetReklamSonrasiOyunBasliyor(bool dogru) { PlayerPrefs.SetInt(REKLAM_GOSTERILDI, dogru == true ? 1 : 0); }
+
     #endregion
+
+    public void OnInitializationComplete()
+    {
+       
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+    }
+
+    public void OnUnityAdsAdLoaded(string placementId)
+    {
+        Debug.Log(placementId);
+    }
+
+    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
+    {
+    }
+
+    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
+    {
+    }
+
+    public void OnUnityAdsShowStart(string placementId)
+    {
+    }
+
+    public void OnUnityAdsShowClick(string placementId)
+    {
+    }
+
+    public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
+    {
+
+        if (placementId != reklamIdOdul) return;
+        switch (showCompletionState)
+        {
+            case UnityAdsShowCompletionState.SKIPPED:
+
+                OyunYoneticisi.instance.ReklamOdulBasarisiz();
+                break;
+            case UnityAdsShowCompletionState.COMPLETED:
+                OyunYoneticisi.instance.ReklamOdulBasarili();
+
+                break;
+            case UnityAdsShowCompletionState.UNKNOWN:
+
+                OyunYoneticisi.instance.ReklamOdulBasarisiz();
+
+                break;
+            default:
+                OyunYoneticisi.instance.ReklamOdulBasarisiz();
+
+
+                break;
+        }
+
+    }
+
 }

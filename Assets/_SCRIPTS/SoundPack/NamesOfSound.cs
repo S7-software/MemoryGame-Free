@@ -19,6 +19,7 @@ public enum NamesOfSound
     mouse,
     ordek1, ordek2, ordek3, oyuncakOrdek2, oyuncakOrdek1,
     sahin, snake, suAygiri,
-    tavuk
+    tavuk,
+    yildizlar
 
 }

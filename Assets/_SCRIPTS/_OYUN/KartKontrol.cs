@@ -152,7 +152,7 @@ public class KartKontrol : MonoBehaviour
         saat.mevcutSure += 5;
         saat.oyunSuresi += 5;
         saat.SureyiTexteYazdir(saat.mevcutSure);
-        saat.slider.maxValue = saat.oyunSuresi;
+        saat.slider.maxValue += 5;
         saat.slider.value = saat.mevcutSure;
         ArtiBesSaniyeResimCikar();
 

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class OyunYoneticisi : MonoBehaviour
 {
-
+    public static OyunYoneticisi instance;
     #region Degiskenler
     [Header("Parametreler")]
     [SerializeField] int sureNormalOyun = 30;
@@ -21,10 +21,9 @@ public class OyunYoneticisi : MonoBehaviour
     public int hangiBolum;
     public bool oyunBitti;
     [SerializeField] KoleksiyonBulundu koleksiyoBulundu;
-
-
-
     Saat saat;
+    bool _reklamOdulGosterildi = false;
+
     ResimKutusu resimKutusu;
     int toplamKartSayisi,
         zorluk;
@@ -37,11 +36,12 @@ public class OyunYoneticisi : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         KameraOraniAyarlama();
         Tanimlama();
         Atama();
     }
-   
+
 
     void Update()
     {
@@ -53,17 +53,16 @@ public class OyunYoneticisi : MonoBehaviour
     #region in Awake
     private void KameraOraniAyarlama()
     {
-        float kameraOlcek=((float)((float)Camera.main.scaledPixelHeight / (float)Camera.main.scaledPixelWidth)-2) * 2;
-        if(kameraOlcek > 0)
-        Camera.main.orthographicSize += kameraOlcek;
+        float kameraOlcek = ((float)((float)Camera.main.scaledPixelHeight / (float)Camera.main.scaledPixelWidth) - 2) * 2;
+        if (kameraOlcek > 0)
+            Camera.main.orthographicSize += kameraOlcek;
     }
 
     private void Tanimlama()
     {
         oyunBitti = false;
-        saat = FindObjectOfType<Saat>();
         resimKutusu = FindObjectOfType<ResimKutusu>();
-
+        saat = FindObjectOfType<Saat>();
         ButunKartComponentleriAl();
         hangiBolum = SceneManager.GetActiveScene().buildIndex;
         toplamKartSayisi = kartlar.Length;
@@ -95,22 +94,23 @@ public class OyunYoneticisi : MonoBehaviour
     int YildizVer()
     {
 
-        int _tamSure = Convert.ToInt32(saat.slider.maxValue) + 5;
-        int _gecenSure = _tamSure - saat.mevcutSure - 5;
-        int _ucYildiz = _tamSure / 2;
-        int _ikiYildiz = _ucYildiz + _ucYildiz / 2;
-        if (_ucYildiz >= _gecenSure)
-        {
-            return 3;
-        }
-        else if (_ikiYildiz >= _gecenSure)
-        {
-            return 2;
-        }
-        else
-        {
-            return 1;
-        }
+        //int _tamSure = Convert.ToInt32(saat.slider.maxValue) + 5;
+        //int _gecenSure = _tamSure - saat.mevcutSure - 5;
+        //int _ucYildiz = _tamSure / 2;
+        //int _ikiYildiz = _ucYildiz + _ucYildiz / 2;
+        //if (_ucYildiz >= _gecenSure)
+        //{
+        //    return 3;
+        //}
+        //else if (_ikiYildiz >= _gecenSure)
+        //{
+        //    return 2;
+        //}
+        //else
+        //{
+        //    return 1;
+        //}
+      return  saat.GetYildiz();
     }
     int YildizVerSuresiz()
     {
@@ -143,7 +143,7 @@ public class OyunYoneticisi : MonoBehaviour
 
     }
 
-    
+
 
 
 
@@ -164,7 +164,7 @@ public class OyunYoneticisi : MonoBehaviour
         return true;
     }
 
-    
+
 
     public void OyunBitti()
     {
@@ -188,7 +188,7 @@ public class OyunYoneticisi : MonoBehaviour
     private void SuresizBolumBitisi()
     {
         int _maksimumSure = saat.mevcutSure;
-       // print("Makisimum Sure: " + _maksimumSure);
+        // print("Makisimum Sure: " + _maksimumSure);
         CanvasSonucGoster(true, YildizVerSuresiz(), _maksimumSure);
         KAYIT.SetRekorSure(zorluk, hangiBolum, _maksimumSure);
         KAYIT.SetRekorYildiz(zorluk, hangiBolum, YildizVerSuresiz());
@@ -216,7 +216,7 @@ public class OyunYoneticisi : MonoBehaviour
                     KAYIT.SetKoleksiyonuKaydet(hangiBolum);
 
                     SoundBox.instance.PlayOneShot(YAZI.GetHayvanAdiEnum(_spriteName));
-                   
+
                 }
                 else { SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi1); }
 
@@ -266,15 +266,25 @@ public class OyunYoneticisi : MonoBehaviour
     public void Kaybetti()
     {
 
-        SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi0);
-        CanvasSonucGoster(false, 0, (int)saat.slider.maxValue - saat.mevcutSure);
-        Kart[] _kartlar = FindObjectsOfType<Kart>();
-        foreach (Kart kart in _kartlar)
+        if (!_reklamOdulGosterildi)
         {
-            kart.myCollider.enabled = false;
+            saat.OyunDuraklat();
+            Instantiate(GetPrefabs.UyariKutusu(HangiUyariKutusu.CanvasDevamEt));
+            SoundBox.instance.PlayOneShot(NamesOfSound.click);
+            _reklamOdulGosterildi = true;
         }
-        
-        
+
+        else
+        {
+            SoundBox.instance.PlayOneShot(NamesOfSound.bolumTamamlandi0);
+            CanvasSonucGoster(false, 0, (int)saat.slider.maxValue - saat.mevcutSure);
+            Kart[] _kartlar = FindObjectsOfType<Kart>();
+            foreach (Kart kart in _kartlar)
+            {
+                kart.myCollider.enabled = false;
+            }
+        }
+
     }
 
     void CanvasSonucGoster(bool Kazanildi, int YildizVer, int mevcutSure)
@@ -284,7 +294,7 @@ public class OyunYoneticisi : MonoBehaviour
         if (Kazanildi)
         {
 
-           // print("Mevcut sure canvasGoster: " + mevcutSure);
+            // print("Mevcut sure canvasGoster: " + mevcutSure);
             bool _rekorVar = KAYIT.GetRekorSure(zorluk, hangiBolum) > mevcutSure ? true : false;
             sonucKutusu.SonucKutusunuCikar(YildizVer, mevcutSure, _rekorVar);
         }
@@ -308,4 +318,27 @@ public class OyunYoneticisi : MonoBehaviour
         return toplamKartSayisi;
     }
     #endregion
+
+
+    public void CanvasDevamEtOnay()
+    {
+        ReklamKontrol.secenekler.ShowOdul();
+    }
+    public void CanvasDevamEtIptal()
+    {
+        Kaybetti();
+    }
+
+    public void ReklamOdulBasarili()
+    {
+        SoundBox.instance.PlayOneShot(NamesOfSound.oyunBasladi);
+        saat.slider.maxValue += 30;
+        saat.mevcutSure += 30;
+        saat.OyunDevamEttir();
+
+    }
+    public void ReklamOdulBasarisiz()
+    {
+        Kaybetti();
+    }
 }

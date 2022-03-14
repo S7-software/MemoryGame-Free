@@ -21,5 +21,10 @@ public class SetGameObjectSize : MonoBehaviour
         }
     }
 
+
+    public void SesYildiz()
+    {
+        SoundBox.instance.PlayOneShot(NamesOfSound.yildizlar);
+    }
   
 }

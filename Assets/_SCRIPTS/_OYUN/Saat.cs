@@ -205,21 +205,52 @@ public class Saat : MonoBehaviour
         {
 
 
-            if (sure <= 10 && sure > 5)
+            //if (sure <= 10 && sure > 5)
+            //{
+            //    imgBar.sprite = spriteBarlar[1];
+            //}
+            //else if (sure <= 5)
+            //{
+            //    imgBar.sprite = spriteBarlar[2];
+            //}
+            //else
+            //{
+            //    imgBar.sprite = spriteBarlar[0];
+            //}
+
+            int max = ((int)slider.maxValue);
+            if ((max/2)<sure)
+            {
+                imgBar.sprite = spriteBarlar[0];
+                
+            }
+            else if (((max / 2)/2) < sure)
             {
                 imgBar.sprite = spriteBarlar[1];
-            }
-            else if (sure <= 5)
-            {
-                imgBar.sprite = spriteBarlar[2];
+                
             }
             else
             {
-                imgBar.sprite = spriteBarlar[0];
+                imgBar.sprite = spriteBarlar[2];
             }
         }
     }
-
+    public int GetYildiz()
+    {
+        Sprite spt = imgBar.sprite;
+        if (spt==spriteBarlar[0])
+        {
+            return 3;
+        }
+        else if (spt == spriteBarlar[1])
+        {
+            return 2;
+        }
+        else
+        {
+            return 1;
+        }
+    }
 
     public void CoroutineOyunuBaslatIlkBesSaniye()
     {
